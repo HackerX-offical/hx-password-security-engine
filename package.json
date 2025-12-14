@@ -1,0 +1,38 @@
+{
+  "name": "hx-password-security-engine",
+  "version": "1.0.0",
+  "description": "Advanced TypeScript-based CLI application for deep password security analysis.",
+  "main": "dist/index.js",
+  "bin": {
+    "hx-pse": "dist/cli/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/cli/index.js",
+    "dev": "ts-node src/cli/index.ts",
+    "clean": "rm -rf dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "security",
+    "password",
+    "entropy",
+    "cli",
+    "typescript"
+  ],
+  "author": "Antigravity",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/yargs": "^17.0.0",
+    "@types/inquirer": "^9.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "yargs": "^17.0.0",
+    "inquirer": "^8.0.0",
+    "zod": "^3.0.0"
+  }
+}
