@@ -1,8 +1,8 @@
-import { AnalysisResult } from "../types";
-import { EntropyEngine } from "../engines/entropy";
-import { CrackTimeEstimator } from "../engines/crack-time";
-import { PolicyEngine } from "../engines/policy";
-import { CharsetEngine } from "../engines/charset";
+import { AnalysisResult } from '../types';
+import { EntropyEngine } from '../engines/entropy';
+import { CrackTimeEstimator } from '../engines/crack-time';
+import { PolicyEngine } from '../engines/policy';
+import { CharsetEngine } from '../engines/charset';
 
 export class PasswordAnalyzer {
   /**

@@ -1,4 +1,4 @@
-import { AttackerScenario, CrackTimeResult } from "../types";
+import { AttackerScenario, CrackTimeResult } from '../types';
 
 export class CrackTimeEstimator {
   private static readonly SECONDS_IN_YEAR = 31536000;
@@ -8,30 +8,29 @@ export class CrackTimeEstimator {
 
   static readonly SCENARIOS: AttackerScenario[] = [
     {
-      name: "Online Attack (Throttled)",
+      name: 'Online Attack (Throttled)',
       guessesPerSecond: 100 / 3600, // ~100 guesses per hour (strict locking)
-      description: "Attacking a web service with strict rate limiting.",
+      description: 'Attacking a web service with strict rate limiting.',
     },
     {
-      name: "Online Attack (Unthrottled)",
+      name: 'Online Attack (Unthrottled)',
       guessesPerSecond: 100, // 100 requests/sec (botnet/no rate limit)
-      description: "Attacking a service with no rate limiting or CAPTCHA.",
+      description: 'Attacking a service with no rate limiting or CAPTCHA.',
     },
     {
-      name: "Offline Attack (Slow Hash)",
+      name: 'Offline Attack (Slow Hash)',
       guessesPerSecond: 1e4, // 10k/sec (e.g., bcrypt/Argon2 on robust hardware)
-      description:
-        "Cracking a stolen database with strong hashing (bcrypt/Argon2).",
+      description: 'Cracking a stolen database with strong hashing (bcrypt/Argon2).',
     },
     {
-      name: "Offline Attack (Fast Hash)",
+      name: 'Offline Attack (Fast Hash)',
       guessesPerSecond: 1e10, // 10B/sec (e.g., MD5/SHA1 on GPU cluster)
-      description: "Cracking a stolen database with weak hashing (MD5/SHA1).",
+      description: 'Cracking a stolen database with weak hashing (MD5/SHA1).',
     },
     {
-      name: "Nation State (Massive Cluster)",
+      name: 'Nation State (Massive Cluster)',
       guessesPerSecond: 1e14, // 100T/sec
-      description: "Massive dedicated GPU/ASIC cluster for high-value targets.",
+      description: 'Massive dedicated GPU/ASIC cluster for high-value targets.',
     },
   ];
 
@@ -57,20 +56,17 @@ export class CrackTimeEstimator {
   }
 
   private static formatTime(seconds: number): string {
-    if (seconds === Infinity) return "Forever";
-    if (seconds < 1) return "Instant";
+    if (seconds === Infinity) return 'Forever';
+    if (seconds < 1) return 'Instant';
 
-    if (seconds < this.SECONDS_IN_MINUTE)
-      return `${Math.floor(seconds)} seconds`;
+    if (seconds < this.SECONDS_IN_MINUTE) return `${Math.floor(seconds)} seconds`;
     if (seconds < this.SECONDS_IN_HOUR)
       return `${Math.floor(seconds / this.SECONDS_IN_MINUTE)} minutes`;
-    if (seconds < this.SECONDS_IN_DAY)
-      return `${Math.floor(seconds / this.SECONDS_IN_HOUR)} hours`;
-    if (seconds < this.SECONDS_IN_YEAR)
-      return `${Math.floor(seconds / this.SECONDS_IN_DAY)} days`;
+    if (seconds < this.SECONDS_IN_DAY) return `${Math.floor(seconds / this.SECONDS_IN_HOUR)} hours`;
+    if (seconds < this.SECONDS_IN_YEAR) return `${Math.floor(seconds / this.SECONDS_IN_DAY)} days`;
 
     const years = Math.floor(seconds / this.SECONDS_IN_YEAR);
-    if (years > 1e9) return "Centuries";
+    if (years > 1e9) return 'Centuries';
     return `${years} years`;
   }
 }

@@ -11,7 +11,9 @@
     "start": "node dist/cli/index.js",
     "dev": "ts-node src/cli/index.ts",
     "clean": "rm -rf dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "keywords": [
     "security",
@@ -21,18 +23,19 @@
     "typescript"
   ],
   "author": "Antigravity",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
+    "@types/inquirer": "^9.0.0",
     "@types/node": "^20.0.0",
     "@types/yargs": "^17.0.0",
-    "@types/inquirer": "^9.0.0",
+    "prettier": "^3.6.2",
     "ts-node": "^10.9.0",
     "typescript": "^5.0.0"
   },
   "dependencies": {
     "chalk": "^4.1.2",
-    "yargs": "^17.0.0",
     "inquirer": "^8.0.0",
+    "yargs": "^17.0.0",
     "zod": "^3.0.0"
   }
 }

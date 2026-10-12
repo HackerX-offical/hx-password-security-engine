@@ -9,7 +9,7 @@ export interface CharsetAnalysis {
 
 export interface EntropyResult {
   bits: number;
-  strength: "Very Weak" | "Weak" | "Moderate" | "Strong" | "Very Strong";
+  strength: 'Very Weak' | 'Weak' | 'Moderate' | 'Strong' | 'Very Strong';
 }
 
 export interface AttackerScenario {

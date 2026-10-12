@@ -1,4 +1,4 @@
-import { PolicyResult, PolicyRule } from "../types";
+import { PolicyResult, PolicyRule } from '../types';
 
 export class PolicyEngine {
   /*
@@ -11,25 +11,23 @@ export class PolicyEngine {
    */
   private static readonly RULES: PolicyRule[] = [
     {
-      id: "min-length-8",
-      description: "Password must be at least 8 characters long.",
+      id: 'min-length-8',
+      description: 'Password must be at least 8 characters long.',
       validate: (pwd) => pwd.length >= 8,
     },
     {
-      id: "min-length-12",
-      description:
-        "Password should be at least 12 characters long for better security.",
+      id: 'min-length-12',
+      description: 'Password should be at least 12 characters long for better security.',
       validate: (pwd) => pwd.length >= 12,
     },
     {
-      id: "max-length-64",
-      description:
-        "Password should not exceed 64 characters (potential DoS/hashing issues).",
+      id: 'max-length-64',
+      description: 'Password should not exceed 64 characters (potential DoS/hashing issues).',
       validate: (pwd) => pwd.length <= 64,
     },
     {
-      id: "no-whitespace-trim",
-      description: "Password should not start or end with whitespace.",
+      id: 'no-whitespace-trim',
+      description: 'Password should not start or end with whitespace.',
       validate: (pwd) => pwd.trim() === pwd,
     },
   ];

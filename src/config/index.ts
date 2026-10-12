@@ -4,11 +4,11 @@
 export interface Config {
   interactive: boolean;
   json: boolean;
-  verbosity: "quiet" | "normal" | "verbose";
+  verbosity: 'quiet' | 'normal' | 'verbose';
 }
 
 export const defaultConfig: Config = {
   interactive: true,
   json: false,
-  verbosity: "normal",
+  verbosity: 'normal',
 };

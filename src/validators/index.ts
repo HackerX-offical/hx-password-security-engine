@@ -1,9 +1,9 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 export const PasswordSchema = z
   .string()
-  .min(1, "Password cannot be empty")
-  .max(1024, "Password is too long (max 1024 chars)");
+  .min(1, 'Password cannot be empty')
+  .max(1024, 'Password is too long (max 1024 chars)');
 
 export class InputValidator {
   static validatePassword(password: string): string | null {

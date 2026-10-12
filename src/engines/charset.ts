@@ -1,4 +1,4 @@
-import { CharsetAnalysis } from "../types";
+import { CharsetAnalysis } from '../types';
 
 export class CharsetEngine {
   /**

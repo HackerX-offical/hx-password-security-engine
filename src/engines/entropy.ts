@@ -1,5 +1,5 @@
-import { CharsetEngine } from "./charset";
-import { EntropyResult } from "../types";
+import { CharsetEngine } from './charset';
+import { EntropyResult } from '../types';
 
 export class EntropyEngine {
   /**
@@ -12,7 +12,7 @@ export class EntropyEngine {
     const poolSize = CharsetEngine.getPoolSize(analysis);
 
     if (poolSize === 0 || password.length === 0) {
-      return { bits: 0, strength: "Very Weak" };
+      return { bits: 0, strength: 'Very Weak' };
     }
 
     const bits = Math.floor(password.length * Math.log2(poolSize));
@@ -23,11 +23,11 @@ export class EntropyEngine {
     };
   }
 
-  private static categorizeStrength(bits: number): EntropyResult["strength"] {
-    if (bits < 28) return "Very Weak";
-    if (bits < 36) return "Weak";
-    if (bits < 60) return "Moderate";
-    if (bits < 128) return "Strong";
-    return "Very Strong";
+  private static categorizeStrength(bits: number): EntropyResult['strength'] {
+    if (bits < 28) return 'Very Weak';
+    if (bits < 36) return 'Weak';
+    if (bits < 60) return 'Moderate';
+    if (bits < 128) return 'Strong';
+    return 'Very Strong';
   }
 }

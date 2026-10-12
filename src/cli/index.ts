@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-import yargs from "yargs";
-import { hideBin } from "yargs/helpers";
-import inquirer from "inquirer";
-import chalk from "chalk";
-import { PasswordAnalyzer } from "../core/analyzer";
-import { OutputFormatter } from "./formatter";
-import { InputValidator } from "../validators";
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import inquirer from 'inquirer';
+import chalk from 'chalk';
+import { PasswordAnalyzer } from '../core/analyzer';
+import { OutputFormatter } from './formatter';
+import { InputValidator } from '../validators';
 
 const runAnalysis = (password: string, json: boolean) => {
   const error = InputValidator.validatePassword(password);
@@ -28,19 +28,19 @@ const runAnalysis = (password: string, json: boolean) => {
 
 yargs(hideBin(process.argv))
   .command(
-    "analyze",
-    "Analyze a password",
+    'analyze',
+    'Analyze a password',
     (yargs) => {
       return yargs
-        .option("password", {
-          alias: "p",
-          type: "string",
-          description: "The password to analyze",
+        .option('password', {
+          alias: 'p',
+          type: 'string',
+          description: 'The password to analyze',
         })
-        .option("json", {
-          alias: "j",
-          type: "boolean",
-          description: "Output in JSON format",
+        .option('json', {
+          alias: 'j',
+          type: 'boolean',
+          description: 'Output in JSON format',
           default: false,
         });
     },
@@ -52,19 +52,19 @@ yargs(hideBin(process.argv))
         if (argv.json) {
           console.error(
             JSON.stringify({
-              error: "Password argument required for JSON mode",
-            })
+              error: 'Password argument required for JSON mode',
+            }),
           );
           process.exit(1);
         }
 
-        console.log(chalk.blue("🔐 Interactive Password Analysis"));
+        console.log(chalk.blue(' Interactive Password Analysis'));
         const answers = await inquirer.prompt([
           {
-            type: "password",
-            name: "password",
-            message: "Enter password to analyze:",
-            mask: "*",
+            type: 'password',
+            name: 'password',
+            message: 'Enter password to analyze:',
+            mask: '*',
             validate: (input) => {
               const err = InputValidator.validatePassword(input);
               return err ? err : true;
@@ -74,7 +74,7 @@ yargs(hideBin(process.argv))
 
         runAnalysis(answers.password, false);
       }
-    }
+    },
   )
   .demandCommand(1, 'You must provide a valid command (e.g., "analyze")')
   .help().argv;
