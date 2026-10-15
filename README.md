@@ -16,7 +16,7 @@ and authorized-use only.
 ## Install
 
 ```bash
-git clone https://github.com/HackerX-offical/hx-password-security-engine.git
+git clone https://github.com/HackerX-official/hx-password-security-engine.git
 cd hx-password-security-engine
 npm install && npm run build
 ```
