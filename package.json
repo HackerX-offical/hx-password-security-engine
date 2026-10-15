@@ -40,5 +40,13 @@
     "inquirer": "^8.0.0",
     "yargs": "^17.0.0",
     "zod": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HackerX-official/hx-password-security-engine.git"
+  },
+  "homepage": "https://github.com/HackerX-official/hx-password-security-engine#readme",
+  "bugs": {
+    "url": "https://github.com/HackerX-official/hx-password-security-engine/issues"
   }
 }
